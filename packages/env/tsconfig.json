@@ -1,0 +1,3 @@
+{
+  "extends": "@GraceRecipe/config/tsconfig.base.json"
+}
