@@ -1,0 +1,67 @@
+{
+    "title": "Salad",
+    "recipes": [
+        {
+            "name": "Penecillin Soup",
+            "ingredients":[
+                {
+                    "name": "Salad",
+                    "ingredients":[
+                        "300g Conchiglie Pasta",
+                        "1 Jar chickpeas",
+                        "200g Asparagus",
+                        "150g Sugar snap peas",
+                        "50g Fresh basil",
+                        "100g Pine nuts"
+                    ]
+                }, {
+                    "name":"Dressing",
+                    "ingredients":[
+                        "6 tbsp Olive oil",
+                        "3 tbsp Lemon juice",
+                        "1 tbsp Vinegar",
+                        "1 tsp Dijon mustard",
+                        "1/2 tbsp Maple syryup",
+                        "1 garlic clove"
+                    ]
+                }
+            ],
+            "instructions":[
+                "Boil pasta, add asparagus for the last 2 minutes.",
+                "Drain & rinse to cool",
+                "Shake dressing ingredients together in a container to form teh dressing.",
+                "Toast the pine nuts for 2-3 minutes",
+                "Mix all ingredients together in a salad bowl."
+            ]
+        },
+        {
+            "name": "White Bean Salad",
+            "ingredients":[
+                {
+                    "name": "Salad",
+                    "ingredients":[
+                        "225g White Beans",
+                        "1/2 Large cucumber",
+                        "5-7 Radishes",
+                        "20g Dill",
+                        "2 Spring onions"
+                    ]
+                }, {
+                    "name":"Dressing",
+                    "ingredients":[
+                        "1 garlic clove",
+                        "2 tbsp Lemon juice",
+                        "1 tsp Dijon mustard",
+                        "1/2 tsp Salt",
+                        "Black pepper"
+                    ]
+                }
+            ],
+            "instructions":[
+                "Mix all dressing ingredients in a container. Shake to emulsify, then rest for at least 5 mins",
+                "Mix salad ingredients together in a large bowl",
+                "Mix in dressing. Additional salt & pepper to taste."
+            ]
+        }
+    ]
+}

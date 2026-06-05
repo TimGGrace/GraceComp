@@ -1,0 +1,54 @@
+{
+    "title": "Pasta",
+    "recipes": [
+        {
+            "name": "Penecillin Soup",
+            "ingredients":[
+                "1 carrot",
+                "1 onion", 
+                "1 celery stick",
+                "3 garlic cloves",
+                "1 tsp black pepper",
+                "2 tbsp butter",
+                "250g Pastina/Orzo pasta",
+                "1.25L Veg stock",
+                "50g Nooch",
+                "Splash of lemon juice"
+            ],
+            "instructions":[
+                "Prepare the veg, finely chopping.",
+                "Melt the butter, cook the carrot, onion, celery on medium heat until soft (not browned)",
+                "Stir in the garlic and pepper, cook until fragrant.",
+                "Stir in the pasta, mix until coated in butter.",
+                "Add stock, simmer until al dente.",
+                "Add Nooch, lemon and pepper to taste",
+                "Serve"
+            ]
+        },
+        {
+            "name": "Noodle Bake",
+            "ingredients":[
+                "4 garlic cloves",
+                "2 inches of ginger",
+                "6 spring onions",
+                "2tbsp miso paste",
+                "2tbsp maple syrup",
+                "1tbsp rice wine vinegar",
+                "3tbsp peanut butter",
+                "3tbsp tahini",
+                "2tbsp soy sauce",
+                "400mL coconut milk",
+                "750mL Veg stock",
+                "4 Ramen packets",
+                "Frozen dumplings"
+            ],
+            "instructions":[
+                "In large bowl, combine: garlic, ginger, onion whites, miso paste, maple syrup, vinegar, peanut butter, tahini and soy sauce. Whisk until smooth.",
+                "Pour in coconut milk and stock, whisk until combined.",
+                "Add noodles to baking dish, pour over sauce. Top with dumplings.",
+                "Bake for 12-15 mins @ 180C fan",
+                "Scatter sesame seeds and onion greens before serving."
+            ]
+        }
+    ]
+}

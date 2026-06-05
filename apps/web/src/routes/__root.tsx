@@ -2,8 +2,6 @@ import { Toaster } from "@GraceRecipe/ui/components/sonner";
 import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from "@tanstack/react-router";
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
-import Header from "../components/header";
-
 import appCss from "../index.css?url";
 
 export interface RouterAppContext {}
@@ -41,11 +39,11 @@ function RootDocument() {
       </head>
       <body>
         <div className="grid h-svh grid-rows-[auto_1fr]">
-          <Header />
-          <Outlet />
+          <div id="app">
+            <Outlet />
+          </div>
         </div>
         <Toaster richColors />
-        <TanStackRouterDevtools position="bottom-left" />
         <Scripts />
       </body>
     </html>
