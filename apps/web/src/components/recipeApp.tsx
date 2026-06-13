@@ -16,6 +16,74 @@ type RecipeCollection = {
   recipes: Recipe[];
 }
 
+function createIngredientsTable(ingredients: Recipe['ingredients']): HTMLTableElement {
+  const table = document.createElement('table');
+  table.className = 'recipe-ingredients-table';
+
+  const colgroup = document.createElement('colgroup');
+  const columnCount = ingredients.length > 0 && typeof ingredients[0] === 'object'
+    ? (ingredients as NamedList[]).length
+    : 1;
+
+  for (let index = 0; index < columnCount; index++) {
+    const col = document.createElement('col');
+    col.style.width = `${100 / columnCount}%`;
+    colgroup.appendChild(col);
+  }
+
+  table.appendChild(colgroup);
+
+  const tbody = document.createElement('tbody');
+
+  if (ingredients.length > 0 && typeof ingredients[0] === 'object') {
+    const sections = ingredients as NamedList[];
+
+    const headerRow = document.createElement('tr');
+    sections.forEach((section) => {
+      const th = document.createElement('th');
+      th.scope = 'col';
+      th.textContent = section.name;
+      headerRow.appendChild(th);
+    });
+    tbody.appendChild(headerRow);
+
+    const row = document.createElement('tr');
+
+    sections.forEach((section) => {
+      const cell = document.createElement('td');
+      const list = document.createElement('ul');
+
+      section.items.forEach((value) => {
+        const item = document.createElement('li');
+        item.textContent = value;
+        list.appendChild(item);
+      });
+
+      cell.appendChild(list);
+      row.appendChild(cell);
+    });
+
+    tbody.appendChild(row);
+  } else {
+    const row = document.createElement('tr');
+    const cell = document.createElement('td');
+    const list = document.createElement('ul');
+
+    (ingredients as string[]).forEach((value) => {
+      const item = document.createElement('li');
+      item.textContent = value;
+      list.appendChild(item);
+    });
+
+    cell.appendChild(list);
+    row.appendChild(cell);
+    tbody.appendChild(row);
+  }
+
+  table.appendChild(tbody);
+  return table;
+}
+
 function printRecipe(r: Recipe): HTMLElement {
   const container = document.createElement('div');
   container.className = 'paperContainer';
@@ -36,45 +104,7 @@ function printRecipe(r: Recipe): HTMLElement {
   ingredientsHeading.textContent = 'Ingredients';
   ingredientsSection.appendChild(ingredientsHeading);
 
-  if (r.ingredients.length > 0 && typeof r.ingredients[0] === 'object') {
-    const flexContainer = document.createElement('div');
-    flexContainer.style.display = 'flex';
-    flexContainer.style.flexDirection = 'row';
-    flexContainer.style.justifyContent = 'space-around';
-    flexContainer.style.alignItems = 'flex-start';
-    flexContainer.style.gap = '2rem';
-
-    (r.ingredients as NamedList[]).forEach((section) => {
-      const colDiv = document.createElement('div');
-      colDiv.style.display = 'flex';
-      colDiv.style.flexDirection = 'column';
-
-      const h3 = document.createElement('h3');
-      h3.textContent = section.name;
-      colDiv.appendChild(h3);
-
-      const ul = document.createElement('ul');
-      section.items.forEach((value) => {
-        const li = document.createElement('li');
-        li.textContent = value;
-        ul.appendChild(li);
-      });
-
-      colDiv.appendChild(ul);
-      flexContainer.appendChild(colDiv);
-    });
-
-    ingredientsSection.appendChild(flexContainer);
-  } else {
-    const ul = document.createElement('ul');
-    (r.ingredients as string[]).forEach((value) => {
-      const li = document.createElement('li');
-      li.textContent = value;
-      ul.appendChild(li);
-    });
-    
-    ingredientsSection.appendChild(ul);
-  }
+  ingredientsSection.appendChild(createIngredientsTable(r.ingredients));
 
   container.appendChild(ingredientsSection);
 
@@ -101,22 +131,13 @@ function printRecipe(r: Recipe): HTMLElement {
 async function loadRecipeCollections(): Promise<RecipeCollection[]> {
   const collections: RecipeCollection[] = [];
 
-  // Import JSON file URLs, then fetch them to ensure the browser receives JSON text.
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  const modules = import.meta.glob('./recipes/*.json', { as: 'url', eager: true }) as Record<string, string>;
+  const modules = import.meta.glob('./recipes/*.json', { eager: true, import: 'default' }) as Record<string, unknown>;
 
-  for (const key in modules) {
-    const url = modules[key];
+  for (const [key, value] of Object.entries(modules)) {
     const fileName = key.replace(/^.*\//, '');
     try {
-      const res = await fetch(url);
-      if (!res.ok) {
-        console.warn(`⚠️ Failed to fetch "${fileName}": ${res.status}`);
-        continue;
-      }
-      const parsedJson = await res.json();
-      const isValidCollection = parsedJson && (parsedJson.heading || parsedJson.title) && Array.isArray(parsedJson.recipes || parsedJson.recipes);
+      const parsedJson = value as any;
+      const isValidCollection = parsedJson && (parsedJson.heading || parsedJson.title) && Array.isArray(parsedJson.recipes);
       if (!isValidCollection) {
         console.warn(`⚠️ Skipped "${fileName}": Missing a valid "heading/title" string or "recipes" array.`);
         continue;

@@ -296,6 +296,40 @@
     line-height: 1.25;
   }
 
+  .recipe-ingredients-table {
+    width: 100%;
+    table-layout: fixed;
+    border-collapse: collapse;
+    margin-top: 0.25rem;
+  }
+
+  .recipe-ingredients-table th,
+  .recipe-ingredients-table td {
+    border: 0;
+    padding: 0 0.5rem 0.35rem 0;
+    text-align: left;
+    vertical-align: top;
+    background: transparent;
+    word-break: break-word;
+  }
+
+  .recipe-ingredients-table th:last-child,
+  .recipe-ingredients-table td:last-child {
+    padding-right: 0;
+  }
+
+  .recipe-ingredients-table th {
+    padding-bottom: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .recipe-ingredients-table td {
+    font-size: 0.98rem;
+    line-height: 1.45;
+  }
+
   .paperContainer ul,
   .paperContainer ol {
     margin: 0.25rem 0 0 0;
