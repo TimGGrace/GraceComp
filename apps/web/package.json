@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "build": "vite build",
-    "serve": "vite preview",
+    "serve": "bun dist/server/server.js",
+    "preview": "vite preview",
     "dev": "vite dev"
   },
   "dependencies": {
