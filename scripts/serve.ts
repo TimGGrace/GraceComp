@@ -1,6 +1,6 @@
 import { spawn } from "node:child_process";
 
-const child = spawn("bun", ["dist/server/server.js"], {
+const child = spawn(process.execPath, ["dist/server/server.js"], {
   cwd: "apps/web",
   env: {
     ...process.env,
