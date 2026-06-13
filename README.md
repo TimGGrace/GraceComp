@@ -67,6 +67,7 @@ GraceRecipe/
 - `bun run dev`: Start all applications in development mode
 - `bun run build`: Build all applications
 - `bun run dev:web`: Start only the web application
+- `bun run serve`: Start the web app production server from the repo root on `PORT=3001` by default
 - `bun run serve` in `apps/web`: Start the production SSR server from `dist/server/server.js`
 - `bun run preview` in `apps/web`: Preview the built client assets with Vite
 - `bun run check-types`: Check TypeScript types across all apps

@@ -23,7 +23,8 @@
     "dev": "turbo dev",
     "build": "turbo build",
     "check-types": "turbo check-types",
-    "dev:web": "turbo -F web dev"
+    "dev:web": "turbo -F web dev",
+    "serve": "bun scripts/serve.ts"
   },
   "dependencies": {
     "@GraceRecipe/env": "workspace:*",
