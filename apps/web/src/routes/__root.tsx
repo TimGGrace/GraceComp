@@ -3,6 +3,7 @@ import { HeadContent, Outlet, Scripts, createRootRouteWithContext } from "@tanst
 import { TanStackRouterDevtools } from "@tanstack/react-router-devtools";
 
 import appCss from "../index.css?url";
+import Header from "../components/header";
 
 export interface RouterAppContext {}
 
@@ -17,7 +18,7 @@ export const Route = createRootRouteWithContext<RouterAppContext>()({
         content: "width=device-width, initial-scale=1",
       },
       {
-        title: "My App",
+        title: "Grace Recipes",
       },
     ],
     links: [
@@ -38,6 +39,7 @@ function RootDocument() {
         <HeadContent />
       </head>
       <body>
+        <Header />
         <div className="grid h-svh grid-rows-[auto_1fr]">
           <div id="app">
             <Outlet />
