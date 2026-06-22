@@ -4,6 +4,7 @@ type Recipe = {
   name: string;
   ingredients: NamedList[] | string[];
   steps: string[];
+  reference?: Reference;
 }
 
 type NamedList = {
@@ -14,6 +15,10 @@ type NamedList = {
 type RecipeCollection = {
   heading: string;
   recipes: Recipe[];
+}
+type Reference = {
+  author: string;
+  weblink: string;
 }
 
 function createIngredientsTable(ingredients: Recipe['ingredients']): HTMLTableElement {
@@ -125,6 +130,25 @@ function printRecipe(r: Recipe): HTMLElement {
   instructionsSection.appendChild(ol);
   container.appendChild(instructionsSection);
 
+  if (r.reference) {
+    const referenceSection = document.createElement('div');
+    referenceSection.className = 'paperSection';
+    referenceSection.style.display = 'flex';
+    referenceSection.style.flexDirection = 'row';
+    
+
+    const referenceHeading = document.createElement('h2');
+    referenceHeading.textContent = 'Credit';
+    referenceHeading.style.marginRight = '10px';
+    referenceSection.appendChild(referenceHeading);
+
+    const referenceContent = document.createElement('p');
+    referenceContent.innerHTML = `<b>Author</b>: ${r.reference.author} <br> <b>Link</b>: <a href="${r.reference.weblink}" target="_blank">${r.reference.weblink}</a>`;
+    referenceSection.appendChild(referenceContent);
+
+    container.appendChild(referenceSection);
+  }
+
   return container;
 }
 
@@ -143,11 +167,12 @@ async function loadRecipeCollections(): Promise<RecipeCollection[]> {
         continue;
       }
 
-      // Normalize fields: accept `title` as `heading`, and `instructions` as `steps`.
+      
       if (parsedJson.title && !parsedJson.heading) parsedJson.heading = parsedJson.title;
+
       parsedJson.recipes = parsedJson.recipes.map((r: any) => {
         if (r.instructions && !r.steps) r.steps = r.instructions;
-        // Normalize nested ingredient objects: convert `ingredients` to `items`
+        
         if (Array.isArray(r.ingredients)) {
           r.ingredients = r.ingredients.map((ing: any) => {
             if (ing.ingredients && !ing.items) {
