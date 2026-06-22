@@ -32,7 +32,11 @@
                 "Toast the pine nuts for 2-3 minutes.",
                 "Shake dressing ingredients together in a container to form the dressing.",
                 "Mix all ingredients together in a salad bowl."
-            ]
+            ],
+            "reference": {
+                "author": "Caitlin Shoemaker",
+                "weblink": "https://frommybowl.com/dilly-white-bean-cucumber-salad/"
+            }
         },
         {
             "name": "White Bean Salad",
@@ -61,7 +65,45 @@
                 "Mix all dressing ingredients in a container. Shake to emulsify, then rest for at least 5 mins",
                 "Mix salad ingredients together in a large bowl",
                 "Mix in dressing. Additional salt & pepper to taste."
-            ]
+            ],
+            "reference": {
+                "author": "Caitlin Shoemaker",
+                "weblink": "https://frommybowl.com/dilly-white-bean-cucumber-salad/"
+            }
+        },
+        {
+            "name": "Mango Salad",
+            "ingredients":[
+                {"name": "Salad",
+                "ingredients":[
+                    "225g shelled edamame",
+                    "1 large cucumber",
+                    "1 large mango, diced",
+                    "1 jalapeno",
+                    "2 tablespoons chopped mint"
+                ]},{
+                    "name": "Dressing",
+                    "ingredients":[
+                        "2 tbsp Rice wine vinegar",
+                        "2tbsp Lime juice",
+                        "1 tbsp Avocado oil",
+                        "2 tsp cane sugar",
+                        "1/4 tsp salt",
+                        "1/2 tsp red pepper flakes (optional)"
+                    ]
+                }
+            ],
+            "instructions":[
+                "Cook the edamame according to package instructions. Rince to cool.",
+                "Trim the ends off of the cucumber, then slice lengthwise. Use a rolling pin to smash the cucumbers. Roughly chop into bite-sized pieces.",
+                "Make the dressing by adding all dressing ingredients into a sealable container. Shake to emulsify.",
+                "Combine all ingredients into a bowl, pour the dressing over then toss well to combine.",
+                "Serve immediately, or chill for 15 minutes to improve flavours."
+            ],
+            "reference": {
+                "author": "Caitlin Shoemaker",
+                "weblink": "https://frommybowl.com/mango-cucumber-salad-edamame/"
+            }
         }
     ]
 }
