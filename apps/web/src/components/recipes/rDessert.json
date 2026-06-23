@@ -1,0 +1,38 @@
+{
+    "title": "Desserts",
+    "recipes": [
+        {
+            "name": "Cheesecake",
+            "ingredients":[
+                {
+                    "name": "Base",
+                    "ingredients":[
+                        "250g Digestive biscuits",
+                        "120g Butter, melted"
+                    ]
+                },{
+                    "name":"Filling",
+                    "ingredients":[
+                        "600g Cream cheese",
+                        "250mL Double cream",
+                        "130g Icing sugar",
+                        "2 1/2 tsp Vanilla extract"
+                    ]
+                }
+            ],
+            "instructions":[
+                "Crush the biscuits (crumbled, but not dust).",
+                "Melt the butter, then pour over the biscuits. Mix well.",
+                "Pour into a 20cm circular tin, pressing down to form an even base. Chill for 30 minutes.",
+                "Mix cream cheese, icing sugar and vanilla extract slowly for 30 seconds to combine.",
+                "Add the double cream, then mix for 2 minutes until firmer.",
+                "Spread mixture over the base and allow to chill overnight."
+            ],
+            "reference": {
+                "author": "Becky Excell",
+                "weblink":"https://glutenfreecuppatea.co.uk/2020/10/27/dairy-free-vanilla-cheesecake-recipe/"
+            }
+        }
+        
+    ]
+}
