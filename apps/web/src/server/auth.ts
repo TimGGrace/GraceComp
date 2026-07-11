@@ -1,11 +1,40 @@
 import { existsSync, readFileSync } from "node:fs";
 import path from "node:path";
+import { config as loadEnvFile } from "dotenv";
 import { betterAuth } from "better-auth";
 
-const baseUrl = (import.meta.env.VITE_BETTER_AUTH_URL as string | undefined) ?? "http://localhost:3001";
-const googleClientId = (import.meta.env.VITE_GOOGLE_CLIENT_ID as string | undefined) ?? "";
-const googleClientSecret = (import.meta.env.VITE_GOOGLE_CLIENT_SECRET as string | undefined) ?? "";
-const allowedUsersFilePath = (import.meta.env.VITE_ALLOWED_USERS_FILE as string | undefined) ?? "./src/auth/allowed-users.json";
+const envFilePaths = [
+  path.resolve(process.cwd(), "apps/web/.env"),
+  path.resolve(process.cwd(), ".env"),
+].filter((candidate) => existsSync(candidate));
+
+for (const envFilePath of envFilePaths) {
+  loadEnvFile({ path: envFilePath });
+}
+
+function getEnv(name: string): string | undefined {
+  const metaEnv = typeof import.meta !== "undefined" && "env" in import.meta
+    ? (import.meta as ImportMeta & { env?: Record<string, string | boolean | undefined> }).env
+    : undefined;
+
+  const fromMeta = metaEnv?.[name];
+  if (typeof fromMeta === "string" && fromMeta.length > 0) {
+    return fromMeta;
+  }
+
+  const fromProcess = process.env?.[name];
+  if (typeof fromProcess === "string" && fromProcess.length > 0) {
+    return fromProcess;
+  }
+
+  return undefined;
+}
+
+const baseUrl = getEnv("VITE_BETTER_AUTH_URL") ?? "http://localhost:3001";
+const googleClientId = getEnv("VITE_GOOGLE_CLIENT_ID") ?? "";
+const googleClientSecret = getEnv("VITE_GOOGLE_CLIENT_SECRET") ?? "";
+const allowedUsersFilePath = getEnv("VITE_ALLOWED_USERS_FILE") ?? "./src/auth/allowed-users.json";
+const authSecret = getEnv("BETTER_AUTH_SECRET") ?? getEnv("VITE_BETTER_AUTH_SECRET") ?? "gracecomp-local-development-secret";
 
 function resolveAllowedUsersFilePath() {
   if (!allowedUsersFilePath) {
@@ -43,6 +72,7 @@ function isAllowedEmail(email?: string | null) {
 export const auth = betterAuth({
   baseURL: baseUrl,
   basePath: "/api/auth",
+  secret: authSecret,
   socialProviders: {
     google: {
       prompt: "select_account",
