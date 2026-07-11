@@ -1,6 +1,8 @@
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 
+import { auth } from "../apps/web/src/server/auth";
+
 type BunFile = {
   exists: () => Promise<boolean> | boolean;
   text: () => Promise<string>;
@@ -48,6 +50,10 @@ Bun.serve({
           headers: { "Content-Type": contentType },
         });
       }
+    }
+
+    if (url.pathname.startsWith("/api/auth")) {
+      return auth.handler(request);
     }
 
     return await app.fetch(request);
