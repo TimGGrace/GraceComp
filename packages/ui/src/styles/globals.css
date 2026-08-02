@@ -138,6 +138,10 @@
     color: var(--color-foreground);
   }
 
+  input[type="checkbox"] {
+    accent-color: var(--color-gray-500)
+  }
+
   #sidebar-container,
   .side-menu {
     width: 280px;

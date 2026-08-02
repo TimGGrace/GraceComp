@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "@GraceRecipe/env": "workspace:*",
+    "@reactuses/core": "^6.4.2",
     "better-auth": "^1.6.23",
     "dotenv": "catalog:",
     "zod": "catalog:"
