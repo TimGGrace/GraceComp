@@ -6,6 +6,7 @@ import { authClient } from "../server/auth-client";
 export default function Header() {
   const links = [
     { to: "https://www.tgrace.dev", label: "Sims" },
+    {to: "https://blog.tgrace.dev", label: "Blog" }
   ] as const;
 
   const { data: session, isPending, refetch } = authClient.useSession();
