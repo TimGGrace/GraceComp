@@ -4,7 +4,7 @@ import CheckedItem from "./uiElems/checkedBox";
 function IngredientList({namedList} : {namedList: NamedList}) {
   return (
     <div className="flex-col gap-2 grow">
-      {namedList.name!=""? <h2>{namedList.name}</h2>: <></>}
+      {namedList.name!=""? <h2>{namedList.name}</h2>: null}
       <ul className="list-none">
         {namedList.items.map((item, index) => 
         <li key={namedList.name+"_"+index}>
