@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="128"
+   viewBox="0 0 33.866666 33.866666"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.4 (dcaf3e7d9e, 2026-05-05)"
+   sodipodi:docname="tgrace_icon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:document-units="mm"
+     inkscape:zoom="3.8774741"
+     inkscape:cx="74.404108"
+     inkscape:cy="64.732864"
+     inkscape:window-width="1349"
+     inkscape:window-height="744"
+     inkscape:window-x="17"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-size:35.2778px;writing-mode:lr-tb;direction:ltr;white-space:pre;inline-size:32.769;fill:#000000;stroke-width:0.264583"
+       x="4.4676766"
+       y="2.4253101"
+       id="text1"
+       transform="matrix(1.1026307,0,0,1.0109786,-3.6346291,26.548062)"><tspan
+         x="4.4676766"
+         y="2.4253101"
+         id="tspan4"><tspan
+           style="font-weight:bold;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono Bold';fill:#ae1df5"
+           id="tspan3">T</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:35.0245px;font-family:'DejaVu Sans Mono';-inkscape-font-specification:'DejaVu Sans Mono Bold';letter-spacing:0px;writing-mode:lr-tb;direction:ltr;fill:#f5951d;fill-opacity:1;stroke-width:0.5;stroke-dasharray:none"
+       x="7.4672279"
+       y="25.871828"
+       id="text2"
+       transform="scale(1.0344724,0.96667633)"><tspan
+         sodipodi:role="line"
+         id="tspan2"
+         style="font-style:italic;font-variant:normal;font-weight:500;font-stretch:normal;font-family:Z003;-inkscape-font-specification:'Z003 Medium Italic';letter-spacing:0px;fill:#f5951d;fill-opacity:1;stroke:#f5951d;stroke-width:0.5;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+         x="7.4672279"
+         y="25.871828">G</tspan></text>
+  </g>
+</svg>
