@@ -9,9 +9,15 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as NewRecipeRouteImport } from './routes/newRecipe'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ApiAuthRouteImport } from './routes/api/auth'
 
+const NewRecipeRoute = NewRecipeRouteImport.update({
+  id: '/newRecipe',
+  path: '/newRecipe',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -25,32 +31,43 @@ const ApiAuthRoute = ApiAuthRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/newRecipe': typeof NewRecipeRoute
   '/api/auth': typeof ApiAuthRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/newRecipe': typeof NewRecipeRoute
   '/api/auth': typeof ApiAuthRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/newRecipe': typeof NewRecipeRoute
   '/api/auth': typeof ApiAuthRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/api/auth'
+  fullPaths: '/' | '/newRecipe' | '/api/auth'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/api/auth'
-  id: '__root__' | '/' | '/api/auth'
+  to: '/' | '/newRecipe' | '/api/auth'
+  id: '__root__' | '/' | '/newRecipe' | '/api/auth'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  NewRecipeRoute: typeof NewRecipeRoute
   ApiAuthRoute: typeof ApiAuthRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/newRecipe': {
+      id: '/newRecipe'
+      path: '/newRecipe'
+      fullPath: '/newRecipe'
+      preLoaderRoute: typeof NewRecipeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -70,6 +87,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  NewRecipeRoute: NewRecipeRoute,
   ApiAuthRoute: ApiAuthRoute,
 }
 export const routeTree = rootRouteImport

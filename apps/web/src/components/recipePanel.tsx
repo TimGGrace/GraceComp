@@ -8,7 +8,7 @@ export default function RecipePanel({ recipe }: { recipe: Recipe|null }) {
 
     const copyString = formatForCopy(recipe.ingredients)
     return (
-        <div className="paperContainer sm:w-2xl">
+        <div className="paperContainer sm:max-w-xl">
         <div className="paperSection">
             <h1>{recipe.name}</h1>
         </div>

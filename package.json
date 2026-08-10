@@ -28,9 +28,12 @@
   },
   "dependencies": {
     "@GraceRecipe/env": "workspace:*",
+    "@hookform/resolvers": "^5.7.1",
     "@reactuses/core": "^6.4.2",
     "better-auth": "^1.6.23",
     "dotenv": "catalog:",
+    "lucide-react": "^1.31.0",
+    "react-hook-form": "^7.84.0",
     "zod": "catalog:"
   },
   "devDependencies": {
