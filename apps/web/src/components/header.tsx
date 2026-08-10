@@ -83,21 +83,22 @@ export default function Header() {
           })}
           {isAuthenticated? <Link to="/newRecipe">Add</Link> : null}
         </nav>
-        <div className="flex items-center gap-2">
-          {displayName ? <span className="text-sm">Hello, {displayName}</span> : null}
-          <button
-            type="button"
-            onClick={handleAuthClick}
-            disabled={isPending || isSubmitting}
-            className="rounded border border-white/20 px-3 py-1 text-sm transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-60"
-          >
-            {isPending ? "Loading..." : isAuthenticated ? "Logout" : "Login with Google"}
-          </button>
-        </div>
-        <div className="flex gap-1">
-          <Button onClick={() => setTheme("light")}><Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"/></Button>
-          <Button onClick={() => setTheme("dark")}><Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"/></Button>
-          <span>Dark/Light Mode</span>
+        <div className="flex gap-4">
+          <div className="flex items-center gap-2">
+            {displayName ? <span className="text-sm">Hello, {displayName}</span> : null}
+            <button
+              type="button"
+              onClick={handleAuthClick}
+              disabled={isPending || isSubmitting}
+              className="rounded border border-white/20 px-3 py-1 text-sm transition hover:bg-white/10 disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              {isPending ? "Loading..." : isAuthenticated ? "Logout" : "Login with Google"}
+            </button>
+          </div>
+          <div className="flex gap-1">
+            <Button variant="ghost" onClick={() => setTheme("dark")}><Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"/></Button>
+            <Button variant="ghost" onClick={() => setTheme("light")}><Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"/></Button>
+          </div>
         </div>
       </div>
       <hr />
