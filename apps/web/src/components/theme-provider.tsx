@@ -1,6 +1,5 @@
 import {createContext, useContext, useEffect, useState} from 'react';
 import {ScriptOnce} from "@tanstack/react-router";
-import { resolveDynamicBaseURL } from 'better-auth';
 
 type Theme = "dark" | "light" | "system"
 
@@ -24,7 +23,7 @@ function getThemeScript(storageKey: string, defaultTheme: Theme) {
 
 const ThemeProviderContext = createContext<ThemeProviderState>({
     theme:"system",
-    setTheme: () => ()
+    setTheme: () => {}
 })
 
 function applyTheme(theme: Theme) {

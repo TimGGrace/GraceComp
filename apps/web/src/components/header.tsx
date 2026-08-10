@@ -2,6 +2,9 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 
 import { authClient } from "../server/auth-client";
+import {Button} from "@GraceRecipe/ui/components/button";
+import {Moon, Sun} from "lucide-react"
+import {useTheme} from "@/components/theme-provider"
 
 export default function Header() {
   const links = [
@@ -55,6 +58,8 @@ export default function Header() {
     }
   };
 
+  const { setTheme } = useTheme()
+
   return (
     <div>
       <div className="flex flex-row items-center justify-between px-2 py-1">
@@ -76,6 +81,7 @@ export default function Header() {
             }
             return null;
           })}
+          {isAuthenticated? <Link to="/newRecipe">Add</Link> : null}
         </nav>
         <div className="flex items-center gap-2">
           {displayName ? <span className="text-sm">Hello, {displayName}</span> : null}
@@ -87,6 +93,11 @@ export default function Header() {
           >
             {isPending ? "Loading..." : isAuthenticated ? "Logout" : "Login with Google"}
           </button>
+        </div>
+        <div className="flex gap-1">
+          <Button onClick={() => setTheme("light")}><Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"/></Button>
+          <Button onClick={() => setTheme("dark")}><Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"/></Button>
+          <span>Dark/Light Mode</span>
         </div>
       </div>
       <hr />
