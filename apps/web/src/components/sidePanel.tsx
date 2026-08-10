@@ -40,13 +40,13 @@ function SideMenu(
     {
       collections.map(collection=>{
         return (
-          <div className="menu-collection">
+          <div className="menu-collection" key={`${collection.heading}_header`}>
             <h2>{collection.heading}</h2>
             <ul>
               {
                 collection.recipes.map((recipe, index)=>{
                   return (
-                    <li key={collection.heading+"_"+index}>
+                    <li key={`${collection.heading}_${index}`}>
                       <a href="#" className="menu-link" onClick={(e)=>{
                         e.preventDefault();
                         recipeStateChanger(recipe);

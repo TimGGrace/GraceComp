@@ -20,8 +20,8 @@ export default function IngredientsTable({ingredients}:{ingredients: NamedList[]
   if (typeof ingredients[0] === 'object') {
     return (<div className="paperSection flex justify-around justify-items-start">
       {
-        (ingredients as NamedList[]).map(namedList => {
-          return <IngredientList namedList={namedList as NamedList} />
+        (ingredients as NamedList[]).map((namedList, index) => {
+          return <IngredientList key={`ingredients_table_${index}`} namedList={namedList as NamedList} />
         })
       }
     </div>
