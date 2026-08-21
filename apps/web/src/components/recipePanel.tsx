@@ -17,7 +17,7 @@ export default function RecipePanel({ recipe }: { recipe: Recipe|null }) {
                 <h2>Ingredients</h2>
                 <ClipboardButton props={{ toCopy: copyString }} />
             </div>
-            <IngredientsTable ingredients={recipe.ingredients} />
+            <IngredientsTable ingredients={recipe.ingredients} recipeName={recipe.name} />
         </div>
         <div className="paperSection">
             <h2>Instructions</h2>
