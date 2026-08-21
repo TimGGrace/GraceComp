@@ -6,6 +6,14 @@ import {Button} from "@GraceRecipe/ui/components/button";
 import {Moon, Sun} from "lucide-react"
 import {useTheme} from "@/components/theme-provider"
 
+function DarkmodeButton () {
+  const {theme, setTheme} = useTheme()
+
+  return theme==="light"
+      ?<Button variant="ghost" onClick={() => setTheme("dark")}><Sun className="h-[1.2rem] w-[1.2rem]"/></Button>
+      :<Button variant="ghost" onClick={() => setTheme("light")}><Moon className="h-[1.2rem] w-[1.2rem]"/></Button>
+}
+
 export default function Header() {
   const links = [
     { to: "https://www.tgrace.dev", label: "Sims" },
@@ -58,7 +66,6 @@ export default function Header() {
     }
   };
 
-  const { setTheme } = useTheme()
 
   return (
     <div>
@@ -96,8 +103,7 @@ export default function Header() {
             </button>
           </div>
           <div className="flex gap-1">
-            <Button variant="ghost" onClick={() => setTheme("dark")}><Sun className="h-[1.2rem] w-[1.2rem] scale-100 rotate-0 transition-all dark:scale-0 dark:-rotate-90"/></Button>
-            <Button variant="ghost" onClick={() => setTheme("light")}><Moon className="absolute h-[1.2rem] w-[1.2rem] scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"/></Button>
+            <DarkmodeButton />
           </div>
         </div>
       </div>
